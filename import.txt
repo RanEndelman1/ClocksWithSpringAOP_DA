@@ -1,0 +1,7 @@
+CREATE DATABASE IF NOT EXISTS clockaop;
+use clockaop;
+
+CREATE TABLE `buttons` (`IP` varchar(100) NOT NULL,`Type` varchar(3000) NOT NULL,`Time` varchar(20) NOT NULL,`Date` varchar(20) NOT NULL);
+CREATE TABLE `login` (`IP` varchar(100) NOT NULL,`Time` varchar(20) NOT NULL,`Date` varchar(20) NOT NULL);
+CREATE TABLE `logout` (`IP` varchar(100) NOT NULL,`Time` varchar(20) NOT NULL,`Date` varchar(20) NOT NULL);
+CREATE TABLE `usagetime` (`IP` varchar(100) NOT NULL, `Date` varchar(100) NOT NULL,`Time` varchar(100) NOT NULL,`UsageTime` varchar(100) NOT NULL);
