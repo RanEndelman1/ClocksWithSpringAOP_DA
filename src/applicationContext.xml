@@ -1,0 +1,49 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="obj" class="com.springaop.StartClass"></bean>
+	<bean id="ba" class="com.springaop.BeforeAdvisor"></bean>
+	<bean id="aa" class="com.springaop.AfterAdvisor"></bean>
+	<bean id="ara" class="com.springaop.AroundAdvisor"></bean>
+	
+	<!-- Definition for clockControl bean -->
+	<bean id="clockControl1" class="com.springaop.MyClockControl">
+		<property name="idNum" value="0" />
+		<property name="c" value="-1" />
+
+	</bean>
+
+	<!-- Definition for clockControl bean -->
+	<bean id="clockControl2" class="com.springaop.MyClockControl">
+		<property name="idNum" value="1" />
+		<property name="c" value="0" />
+
+	</bean>
+
+	<!-- Definition for clockControl bean -->
+	<bean id="clockControl3" class="com.springaop.MyClockControl">
+		<property name="idNum" value="2" />
+		<property name="c" value="1" />
+
+	</bean>
+
+	<!-- Definition for MyClock bean -->
+	<bean id="myClock" class="com.springaop.MyClock">
+
+	</bean>
+	
+	<!-- Definition for proxy bean -->
+	<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="obj"></property>
+		<property name="interceptorNames">
+			<list>
+				<value>ba</value>
+				<value>ara</value>
+				<value>aa</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>  
